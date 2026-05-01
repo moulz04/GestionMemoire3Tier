@@ -1,4 +1,6 @@
 <Solution>
-  <Project Path="FrontMemoire3Tier/FrontMemoire3Tier.csproj" />
+  <Project Path="FrontMemoire3Tier/FrontMemoire3Tier.csproj">
+    <BuildDependency Project="MetierMemoire/MetierMemoire.csproj" />
+  </Project>
   <Project Path="MetierMemoire/MetierMemoire.csproj" />
 </Solution>

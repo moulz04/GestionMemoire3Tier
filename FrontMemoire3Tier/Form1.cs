@@ -16,5 +16,12 @@ namespace FrontMemoire3Tier
         {
             InitializeComponent();
         }
+
+        ServiceMemoire.Service1Client service=new ServiceMemoire.Service1Client();
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            MessageBox.Show(service.GetData(15));
+        }
     }
 }
