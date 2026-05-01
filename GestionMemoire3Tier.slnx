@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="FrontMemoire3Tier/FrontMemoire3Tier.csproj" />
+  <Project Path="MetierMemoire/MetierMemoire.csproj" />
+</Solution>
