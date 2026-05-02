@@ -1,4 +1,4 @@
-﻿using MetierMemoire.Model;
+using MetierMemoire.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,6 +45,54 @@ namespace MetierMemoire.Service
                 db.Memoires.Add(memo);
                 db.SaveChanges();
                 return true;
+            }
+            catch (Exception ex)
+            {
+                //todo implementer la gestion des erreurs
+            }
+            return false;
+        }
+
+
+
+        /// <summary>
+        /// Permet de modifier un memoire dans la base de données
+        /// </summary>
+        /// <param name="memo"></param>
+        /// <returns></returns>
+        public bool EditMemoire(Memoire memo)
+        {
+            try
+            {
+                db.Entry(memo).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                //todo implementer la gestion des erreurs
+            }
+            return false;
+        }
+
+
+
+        /// <summary>
+        /// Permet de supprimer un memoire dans la base de données
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public bool DeleteMemoire(int id)
+        {
+            try
+            {
+                var memo = db.Memoires.Find(id);
+                if (memo != null)
+                {
+                    db.Memoires.Remove(memo);
+                    db.SaveChanges();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
