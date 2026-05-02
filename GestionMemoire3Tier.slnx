@@ -1,6 +1,6 @@
 <Solution>
-  <Project Path="FrontMemoire3Tier/FrontMemoire3Tier.csproj">
+  <Project Path="FrontMemoire3Tier/FrontMemoire3Tier.csproj" Id="b0e28ca4-bec2-4b64-a9f7-0d7d0dabf577">
     <BuildDependency Project="MetierMemoire/MetierMemoire.csproj" />
   </Project>
-  <Project Path="MetierMemoire/MetierMemoire.csproj" />
+  <Project Path="MetierMemoire/MetierMemoire.csproj" Id="feb0fd44-f193-4791-9c11-b1dae4a01200" />
 </Solution>
