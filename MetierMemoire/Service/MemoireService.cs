@@ -46,9 +46,9 @@ namespace MetierMemoire.Service
                 db.SaveChanges();
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //todo implementer la gestion des erreurs
+                throw new Exception("Erreur lors de l'ajout du mémoire : " + ex.Message);
             }
             return false;
         }
@@ -68,9 +68,9 @@ namespace MetierMemoire.Service
                 db.SaveChanges();
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //todo implementer la gestion des erreurs
+                throw new Exception("Erreur lors de la modification du mémoire : " + ex.Message);
             }
             return false;
         }
@@ -94,9 +94,9 @@ namespace MetierMemoire.Service
                     return true;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //todo implementer la gestion des erreurs
+                throw new Exception("Erreur lors de la suppression du mémoire : " + ex.Message);
             }
             return false;
         }
