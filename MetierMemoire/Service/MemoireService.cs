@@ -8,7 +8,7 @@ namespace MetierMemoire.Service
 {
     public class MemoireService
     {
-        BdMemoireContext db = new BdMemoireContext();
+        readonly BdMemoireContext db = new BdMemoireContext();
 
         /// <summary>
         /// Cette methode renvoie la liste de tous les memoires disponibles dans la base de données
@@ -102,51 +102,5 @@ namespace MetierMemoire.Service
         }
 
 
-
-        /// <summary>
-        /// Permet de modifier un memoire dans la base de données
-        /// </summary>
-        /// <param name="memo"></param>
-        /// <returns></returns>
-        public bool EditMemoire(Memoire memo)
-        {
-            try
-            {
-                db.Entry(memo).State = System.Data.Entity.EntityState.Modified;
-                db.SaveChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                //todo implementer la gestion des erreurs
-            }
-            return false;
-        }
-
-
-
-        /// <summary>
-        /// Permet de supprimer un memoire dans la base de données
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public bool DeleteMemoire(int id)
-        {
-            try
-            {
-                var memo = db.Memoires.Find(id);
-                if (memo != null)
-                {
-                    db.Memoires.Remove(memo);
-                    db.SaveChanges();
-                    return true;
-                }
-            }
-            catch (Exception ex)
-            {
-                //todo implementer la gestion des erreurs
-            }
-            return false;
-        }
     }
 }

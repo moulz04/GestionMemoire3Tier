@@ -1,4 +1,4 @@
-using K4os.Compression.LZ4.Internal;
+
 using MetierMemoire.Model;
 using MetierMemoire.Service;
 using System;
@@ -15,7 +15,7 @@ namespace MetierMemoire
     // REMARQUE : pour lancer le client test WCF afin de tester ce service, sélectionnez Service1.svc ou Service1.svc.cs dans l'Explorateur de solutions et démarrez le débogage.
     public class Service1 : IService1
     {
-        MemoireService memoireService = new MemoireService();
+        readonly MemoireService memoireService = new MemoireService();
 
         public string GetData(int value)
         {
