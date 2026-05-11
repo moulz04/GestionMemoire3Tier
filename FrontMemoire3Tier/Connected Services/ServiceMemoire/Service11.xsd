@@ -70,10 +70,24 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetMemoireList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MetierMemoire.Model" minOccurs="0" name="memo" nillable="true" type="q6:MemoireModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMemoireListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MetierMemoire.Model" minOccurs="0" name="GetMemoireListResult" nillable="true" type="q7:ArrayOfMemoire" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="EditMemoire">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MetierMemoire.Model" minOccurs="0" name="memo" nillable="true" type="q6:Memoire" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/MetierMemoire.Model" minOccurs="0" name="memo" nillable="true" type="q8:Memoire" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -87,7 +101,7 @@
   <xs:element name="DeleteMemoire">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/MetierMemoire.Model" minOccurs="0" name="memo" nillable="true" type="q9:Memoire" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

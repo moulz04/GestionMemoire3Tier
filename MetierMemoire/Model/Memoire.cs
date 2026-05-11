@@ -27,15 +27,7 @@ namespace MetierMemoire.Model
 
     public class MemoireModel
     {
-        [Required, MaxLength(2000)]
         public string SujetMemoire { get; set; }
-
-
-        [Required, MaxLength(100000)]
-        public string DescriptionMemoire { get; set; }
-
-
-        [Required]
         public int AnneeMemoire { get; set; }
     }
 }

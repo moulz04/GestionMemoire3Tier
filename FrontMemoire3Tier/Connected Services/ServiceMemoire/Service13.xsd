@@ -15,4 +15,11 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Memoire" nillable="true" type="tns:Memoire" />
+  <xs:complexType name="MemoireModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AnneeMemoire" type="xs:int" />
+      <xs:element minOccurs="0" name="SujetMemoire" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MemoireModel" nillable="true" type="tns:MemoireModel" />
 </xs:schema>

@@ -62,10 +62,16 @@ namespace MetierMemoire
             //return memoireService.EditMemoire(memo);
         }
 
-        public bool DeleteMemoire(int id)
+        public bool DeleteMemoire(Memoire memo)
         {
             MemoireService service = new MemoireService();
-            return service.DeleteMemoire(id);
+            return service.DeleteMemoire(memo);
+        }
+
+        public List<Memoire> GetMemoireList(MemoireModel memo)
+        {
+            MemoireService service = new MemoireService();
+            return service.GetMemoireList(memo);
         }
     }
 }

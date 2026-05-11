@@ -106,7 +106,7 @@ namespace MetierMemoire.Service
         /// </summary>
         /// <param name="memo"></param>
         /// <returns></returns>
-        public List<Memoire> GetMemoireList(Memoire memo)
+        public List<Memoire> GetMemoireList(MemoireModel memo)
         {
             var liste = db.Memoires.ToList();
 

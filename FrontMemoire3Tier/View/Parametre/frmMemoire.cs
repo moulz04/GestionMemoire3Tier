@@ -50,15 +50,41 @@ namespace FrontMemoire3Tier.View.Parametre
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            ServiceMemoire.Memoire memoire = new ServiceMemoire.Memoire
-            {
-                AnneeMemoire = int.Parse(txtAnnee.Text),
-                SujetMemoire = txtSujet.Text,
-                DescriptionMemoire = txtDescription.Text
-            };
+           ServiceMemoire.Memoire memoire = new ServiceMemoire.Memoire();
+            memoire.AnneeMemoire = int.Parse(txtAnnee.Text);
+            memoire.SujetMemoire = txtSujet.Text;
+            memoire.DescriptionMemoire = txtDescription.Text;
             service.AddMemoire(memoire);
             Effacer();
+        }
 
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            ServiceMemoire.Memoire memoire = new ServiceMemoire.Memoire();
+            memoire.AnneeMemoire = int.Parse(txtAnnee.Text);
+            memoire.SujetMemoire = txtSujet.Text;
+            memoire.DescriptionMemoire = txtDescription.Text;
+            service.EditMemoire(memoire);
+            Effacer();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            ServiceMemoire.Memoire memoire = new ServiceMemoire.Memoire();
+            memoire.AnneeMemoire = int.Parse(txtAnnee.Text);
+            memoire.SujetMemoire = txtSujet.Text;
+            memoire.DescriptionMemoire = txtDescription.Text;
+            service.DeleteMemoire(memoire);
+            Effacer();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            ServiceMemoire.MemoireModel memoire = new ServiceMemoire.MemoireModel();
+            memoire.AnneeMemoire = int.Parse(txtAnnee.Text);
+            memoire.SujetMemoire = txtSujet.Text;
+            service.GetMemoireList(memoire);
+            Effacer();
         }
     }
 }
