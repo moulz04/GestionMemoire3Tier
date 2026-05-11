@@ -60,7 +60,9 @@ namespace FrontMemoire3Tier.View.Parametre
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            int id = int.Parse(dgMemoire.CurrentRow.Cells[2].Value.ToString());
             ServiceMemoire.Memoire memoire = new ServiceMemoire.Memoire();
+            memoire.IDMemoire = id;
             memoire.AnneeMemoire = int.Parse(txtAnnee.Text);
             memoire.SujetMemoire = txtSujet.Text;
             memoire.DescriptionMemoire = txtDescription.Text;
@@ -70,7 +72,9 @@ namespace FrontMemoire3Tier.View.Parametre
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            int id = int.Parse(dgMemoire.CurrentRow.Cells[2].Value.ToString());
             ServiceMemoire.Memoire memoire = new ServiceMemoire.Memoire();
+            memoire.IDMemoire = id;
             memoire.AnneeMemoire = int.Parse(txtAnnee.Text);
             memoire.SujetMemoire = txtSujet.Text;
             memoire.DescriptionMemoire = txtDescription.Text;
