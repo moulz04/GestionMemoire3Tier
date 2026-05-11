@@ -1,6 +1,7 @@
 using MetierMemoire.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -64,7 +65,7 @@ namespace MetierMemoire.Service
         {
             try
             {
-                db.Entry(memo).State = System.Data.Entity.EntityState.Modified;
+                db.Entry(memo).State = EntityState.Modified;
                 db.SaveChanges();
                 return true;
             }
@@ -82,14 +83,13 @@ namespace MetierMemoire.Service
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public bool DeleteMemoire(int id)
+        public bool DeleteMemoire(Memoire memo)
         {
             try
             {
-                var memo = db.Memoires.Find(id);
-                if (memo != null)
+                
                 {
-                    db.Memoires.Remove(memo);
+                    db.Entry(memo).State = EntityState.Deleted;
                     db.SaveChanges();
                     return true;
                 }
@@ -101,6 +101,26 @@ namespace MetierMemoire.Service
             return false;
         }
 
+        /// <summary>
+        /// Permet la recherche des memoires dans la base de données en fonction du sujet et de l'année du memoire
+        /// </summary>
+        /// <param name="memo"></param>
+        /// <returns></returns>
+        public List<Memoire> GetMemoireList(Memoire memo)
+        {
+            var liste = db.Memoires.ToList();
+
+            if(!string.IsNullOrEmpty(memo.SujetMemoire))
+            {
+                liste = liste.Where(a => a.SujetMemoire.ToLower().Contains(memo.SujetMemoire.ToLower())).ToList();
+            }
+            if (memo.AnneeMemoire!=null)
+            {
+                liste = liste.Where(a => a.AnneeMemoire==memo.AnneeMemoire).ToList();
+            }
+
+            return liste;
+        }
 
     }
 }
