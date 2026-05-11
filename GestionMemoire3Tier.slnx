@@ -3,5 +3,6 @@
     <BuildDependency Project="MetierMemoire/MetierMemoire.csproj" />
   </Project>
   <Project Path="MetierMemoire/MetierMemoire.csproj" Id="feb0fd44-f193-4791-9c11-b1dae4a01200" />
+  <Project Path="ServiceMemoire/ServiceMemoire.csproj" Id="4ec440ad-65c4-4cc9-9df3-641ded2b0f6f" />
   <Project Path="SetupFrontMemoire/SetupFrontMemoire.vdproj" Type="Installer" />
 </Solution>
