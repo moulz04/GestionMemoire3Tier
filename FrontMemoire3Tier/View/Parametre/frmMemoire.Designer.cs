@@ -152,6 +152,7 @@
             this.btnSelect.TabIndex = 10;
             this.btnSelect.Text = "&Selectionner";
             this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // btnSearch
             // 

@@ -86,5 +86,12 @@ namespace FrontMemoire3Tier.View.Parametre
             service.GetMemoireList(memoire);
             Effacer();
         }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            txtAnnee.Text = dgMemoire.CurrentRow.Cells[0].Value.ToString();
+            txtDescription.Text = dgMemoire.CurrentRow.Cells[0].Value.ToString();
+            txtSujet.Text = dgMemoire.CurrentRow.Cells[0].Value.ToString();
+        }
     }
 }
