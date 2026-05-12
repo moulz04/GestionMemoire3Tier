@@ -33,10 +33,13 @@ namespace MetierMemoire
         bool AddMemoire(Memoire memo);
 
         [OperationContract]
+        List<Memoire> GetMemoireList(MemoireModel memo);
+
+        [OperationContract]
         bool EditMemoire(Memoire memo);
 
         [OperationContract]
-        bool DeleteMemoire(int id);
+        bool DeleteMemoire(Memoire memo);
     }
 
 

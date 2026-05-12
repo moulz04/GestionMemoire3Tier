@@ -23,7 +23,11 @@ namespace MetierMemoire.Model
         [Required]
         public int AnneeMemoire { get; set; }
 
+    }
 
-
+    public class MemoireModel
+    {
+        public string SujetMemoire { get; set; }
+        public int AnneeMemoire { get; set; }
     }
 }

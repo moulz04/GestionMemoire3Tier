@@ -38,6 +38,12 @@
   <wsdl:message name="IService1_AddMemoire_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddMemoireResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetMemoireList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemoireList" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetMemoireList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemoireListResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_EditMemoire_InputMessage">
     <wsdl:part name="parameters" element="tns:EditMemoire" />
   </wsdl:message>
@@ -70,6 +76,10 @@
     <wsdl:operation name="AddMemoire">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddMemoire" message="tns:IService1_AddMemoire_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddMemoireResponse" message="tns:IService1_AddMemoire_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemoireList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetMemoireList" message="tns:IService1_GetMemoireList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetMemoireListResponse" message="tns:IService1_GetMemoireList_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="EditMemoire">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/EditMemoire" message="tns:IService1_EditMemoire_InputMessage" />
@@ -120,6 +130,15 @@
     </wsdl:operation>
     <wsdl:operation name="AddMemoire">
       <soap:operation soapAction="http://tempuri.org/IService1/AddMemoire" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemoireList">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetMemoireList" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
