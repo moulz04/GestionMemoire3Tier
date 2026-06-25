@@ -1,8 +1,12 @@
 <Solution>
-  <Project Path="FrontMemoire3Tier/FrontMemoire3Tier.csproj" Id="b0e28ca4-bec2-4b64-a9f7-0d7d0dabf577">
+  <Folder Name="/Éléments de solution/">
+    <File Path=".gitignore" />
+  </Folder>
+  <Project Path="APIText/APIText.csproj" Id="c308d1d6-e4cc-489c-a642-d95bff96855e" />
+  <Project Path="AppClientPhp/AppClientPhp.csproj" Id="be04b91b-a8cb-42ac-8da8-5a206788de31" />
+  <Project Path="FrontMemoire3Tier/FrontMemoire3Tier.csproj" Id="72251abe-0904-4789-97a8-1c2ff417278f">
     <BuildDependency Project="MetierMemoire/MetierMemoire.csproj" />
   </Project>
-  <Project Path="MetierMemoire/MetierMemoire.csproj" Id="feb0fd44-f193-4791-9c11-b1dae4a01200" />
-  <Project Path="ServiceMemoire/ServiceMemoire.csproj" Id="4ec440ad-65c4-4cc9-9df3-641ded2b0f6f" />
-  <Project Path="SetupFrontMemoire/SetupFrontMemoire.vdproj" Type="Installer" />
+  <Project Path="GestionEtudiantWinForms/GestionEtudiantWinForms.csproj" Id="8fd29f79-ef93-44d8-90aa-39fb491854e7" />
+  <Project Path="MetierMemoire/MetierMemoire.csproj" Id="60882d51-0d9b-4ce5-9d85-7c32fd1d3176" />
 </Solution>

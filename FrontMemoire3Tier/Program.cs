@@ -1,3 +1,4 @@
+﻿using FrontMemoire3Tier.View.Parametre;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace FrontMemoire3Tier
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrontMemoire3Tier.View.Parametre.frmMemoire());
+            Application.Run(new frmMemoire());
         }
     }
 }

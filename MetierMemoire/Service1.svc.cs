@@ -1,4 +1,3 @@
-
 using MetierMemoire.Model;
 using MetierMemoire.Service;
 using System;
@@ -15,7 +14,23 @@ namespace MetierMemoire
     // REMARQUE : pour lancer le client test WCF afin de tester ce service, sélectionnez Service1.svc ou Service1.svc.cs dans l'Explorateur de solutions et démarrez le débogage.
     public class Service1 : IService1
     {
-        readonly MemoireService memoireService = new MemoireService();
+        public bool AddMemoire(Memoire mem)
+        {
+            MemoireService service = new MemoireService();
+            return service.AddMemoire(mem);
+        }
+
+        public bool DeleteMemoire(int? id)
+        {
+            MemoireService service = new MemoireService();
+            return service.DeleteMemoire(id);
+        }
+
+        public List<Memoire> GetAllMemoire()
+        {
+            MemoireService service = new MemoireService();
+            return service.GetAllMemoire();
+        }
 
         public string GetData(int value)
         {
@@ -35,43 +50,22 @@ namespace MetierMemoire
             return composite;
         }
 
-        public List<Memoire> GetAllMemoire()
-        {
-            MemoireService service = new MemoireService();
-            return service.GetAllMemoire();
-        }
-
         public Memoire GetMemoire(int? id)
         {
             MemoireService service = new MemoireService();
             return service.GetMemoire(id);
         }
 
-        public bool AddMemoire(Memoire memo)
+        public List<Memoire> GetMemoireList(Memoire mem)
         {
             MemoireService service = new MemoireService();
-           return service.AddMemoire(memo);
-            //return memoireService.AddMemoire(memo);
+            return service.GetMemoireList(mem);
         }
 
-        public bool EditMemoire(Memoire memo)
+        public bool UpdateMemoire(Memoire mem)
         {
             MemoireService service = new MemoireService();
-            return service.EditMemoire(memo);
-
-            //return memoireService.EditMemoire(memo);
-        }
-
-        public bool DeleteMemoire(Memoire memo)
-        {
-            MemoireService service = new MemoireService();
-            return service.DeleteMemoire(memo);
-        }
-
-        public List<Memoire> GetMemoireList(MemoireModel memo)
-        {
-            MemoireService service = new MemoireService();
-            return service.GetMemoireList(memo);
+            return service.UpdateMemoire(mem);
         }
     }
 }

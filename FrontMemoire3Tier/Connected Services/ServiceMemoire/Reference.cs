@@ -84,13 +84,13 @@ namespace FrontMemoire3Tier.ServiceMemoire {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int AnneeMemoireField;
+        private string AnneeMemoireField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DescriptionMemoireField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IDMemoireField;
+        private int IdMemoireField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SujetMemoireField;
@@ -106,12 +106,12 @@ namespace FrontMemoire3Tier.ServiceMemoire {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int AnneeMemoire {
+        public string AnneeMemoire {
             get {
                 return this.AnneeMemoireField;
             }
             set {
-                if ((this.AnneeMemoireField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.AnneeMemoireField, value) != true)) {
                     this.AnneeMemoireField = value;
                     this.RaisePropertyChanged("AnneeMemoire");
                 }
@@ -132,75 +132,14 @@ namespace FrontMemoire3Tier.ServiceMemoire {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int IDMemoire {
+        public int IdMemoire {
             get {
-                return this.IDMemoireField;
+                return this.IdMemoireField;
             }
             set {
-                if ((this.IDMemoireField.Equals(value) != true)) {
-                    this.IDMemoireField = value;
-                    this.RaisePropertyChanged("IDMemoire");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SujetMemoire {
-            get {
-                return this.SujetMemoireField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SujetMemoireField, value) != true)) {
-                    this.SujetMemoireField = value;
-                    this.RaisePropertyChanged("SujetMemoire");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="MemoireModel", Namespace="http://schemas.datacontract.org/2004/07/MetierMemoire.Model")]
-    [System.SerializableAttribute()]
-    public partial class MemoireModel : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int AnneeMemoireField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SujetMemoireField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int AnneeMemoire {
-            get {
-                return this.AnneeMemoireField;
-            }
-            set {
-                if ((this.AnneeMemoireField.Equals(value) != true)) {
-                    this.AnneeMemoireField = value;
-                    this.RaisePropertyChanged("AnneeMemoire");
+                if ((this.IdMemoireField.Equals(value) != true)) {
+                    this.IdMemoireField = value;
+                    this.RaisePropertyChanged("IdMemoire");
                 }
             }
         }
@@ -257,28 +196,28 @@ namespace FrontMemoire3Tier.ServiceMemoire {
         System.Threading.Tasks.Task<FrontMemoire3Tier.ServiceMemoire.Memoire> GetMemoireAsync(System.Nullable<int> id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddMemoire", ReplyAction="http://tempuri.org/IService1/AddMemoireResponse")]
-        bool AddMemoire(FrontMemoire3Tier.ServiceMemoire.Memoire memo);
+        bool AddMemoire(FrontMemoire3Tier.ServiceMemoire.Memoire mem);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddMemoire", ReplyAction="http://tempuri.org/IService1/AddMemoireResponse")]
-        System.Threading.Tasks.Task<bool> AddMemoireAsync(FrontMemoire3Tier.ServiceMemoire.Memoire memo);
+        System.Threading.Tasks.Task<bool> AddMemoireAsync(FrontMemoire3Tier.ServiceMemoire.Memoire mem);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetMemoireList", ReplyAction="http://tempuri.org/IService1/GetMemoireListResponse")]
-        FrontMemoire3Tier.ServiceMemoire.Memoire[] GetMemoireList(FrontMemoire3Tier.ServiceMemoire.MemoireModel memo);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateMemoire", ReplyAction="http://tempuri.org/IService1/UpdateMemoireResponse")]
+        bool UpdateMemoire(FrontMemoire3Tier.ServiceMemoire.Memoire mem);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetMemoireList", ReplyAction="http://tempuri.org/IService1/GetMemoireListResponse")]
-        System.Threading.Tasks.Task<FrontMemoire3Tier.ServiceMemoire.Memoire[]> GetMemoireListAsync(FrontMemoire3Tier.ServiceMemoire.MemoireModel memo);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EditMemoire", ReplyAction="http://tempuri.org/IService1/EditMemoireResponse")]
-        bool EditMemoire(FrontMemoire3Tier.ServiceMemoire.Memoire memo);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EditMemoire", ReplyAction="http://tempuri.org/IService1/EditMemoireResponse")]
-        System.Threading.Tasks.Task<bool> EditMemoireAsync(FrontMemoire3Tier.ServiceMemoire.Memoire memo);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateMemoire", ReplyAction="http://tempuri.org/IService1/UpdateMemoireResponse")]
+        System.Threading.Tasks.Task<bool> UpdateMemoireAsync(FrontMemoire3Tier.ServiceMemoire.Memoire mem);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteMemoire", ReplyAction="http://tempuri.org/IService1/DeleteMemoireResponse")]
-        bool DeleteMemoire(FrontMemoire3Tier.ServiceMemoire.Memoire memo);
+        bool DeleteMemoire(System.Nullable<int> id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteMemoire", ReplyAction="http://tempuri.org/IService1/DeleteMemoireResponse")]
-        System.Threading.Tasks.Task<bool> DeleteMemoireAsync(FrontMemoire3Tier.ServiceMemoire.Memoire memo);
+        System.Threading.Tasks.Task<bool> DeleteMemoireAsync(System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetMemoireList", ReplyAction="http://tempuri.org/IService1/GetMemoireListResponse")]
+        FrontMemoire3Tier.ServiceMemoire.Memoire[] GetMemoireList(FrontMemoire3Tier.ServiceMemoire.Memoire mem);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetMemoireList", ReplyAction="http://tempuri.org/IService1/GetMemoireListResponse")]
+        System.Threading.Tasks.Task<FrontMemoire3Tier.ServiceMemoire.Memoire[]> GetMemoireListAsync(FrontMemoire3Tier.ServiceMemoire.Memoire mem);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -340,36 +279,36 @@ namespace FrontMemoire3Tier.ServiceMemoire {
             return base.Channel.GetMemoireAsync(id);
         }
         
-        public bool AddMemoire(FrontMemoire3Tier.ServiceMemoire.Memoire memo) {
-            return base.Channel.AddMemoire(memo);
+        public bool AddMemoire(FrontMemoire3Tier.ServiceMemoire.Memoire mem) {
+            return base.Channel.AddMemoire(mem);
         }
         
-        public System.Threading.Tasks.Task<bool> AddMemoireAsync(FrontMemoire3Tier.ServiceMemoire.Memoire memo) {
-            return base.Channel.AddMemoireAsync(memo);
+        public System.Threading.Tasks.Task<bool> AddMemoireAsync(FrontMemoire3Tier.ServiceMemoire.Memoire mem) {
+            return base.Channel.AddMemoireAsync(mem);
         }
         
-        public FrontMemoire3Tier.ServiceMemoire.Memoire[] GetMemoireList(FrontMemoire3Tier.ServiceMemoire.MemoireModel memo) {
-            return base.Channel.GetMemoireList(memo);
+        public bool UpdateMemoire(FrontMemoire3Tier.ServiceMemoire.Memoire mem) {
+            return base.Channel.UpdateMemoire(mem);
         }
         
-        public System.Threading.Tasks.Task<FrontMemoire3Tier.ServiceMemoire.Memoire[]> GetMemoireListAsync(FrontMemoire3Tier.ServiceMemoire.MemoireModel memo) {
-            return base.Channel.GetMemoireListAsync(memo);
+        public System.Threading.Tasks.Task<bool> UpdateMemoireAsync(FrontMemoire3Tier.ServiceMemoire.Memoire mem) {
+            return base.Channel.UpdateMemoireAsync(mem);
         }
         
-        public bool EditMemoire(FrontMemoire3Tier.ServiceMemoire.Memoire memo) {
-            return base.Channel.EditMemoire(memo);
+        public bool DeleteMemoire(System.Nullable<int> id) {
+            return base.Channel.DeleteMemoire(id);
         }
         
-        public System.Threading.Tasks.Task<bool> EditMemoireAsync(FrontMemoire3Tier.ServiceMemoire.Memoire memo) {
-            return base.Channel.EditMemoireAsync(memo);
+        public System.Threading.Tasks.Task<bool> DeleteMemoireAsync(System.Nullable<int> id) {
+            return base.Channel.DeleteMemoireAsync(id);
         }
         
-        public bool DeleteMemoire(FrontMemoire3Tier.ServiceMemoire.Memoire memo) {
-            return base.Channel.DeleteMemoire(memo);
+        public FrontMemoire3Tier.ServiceMemoire.Memoire[] GetMemoireList(FrontMemoire3Tier.ServiceMemoire.Memoire mem) {
+            return base.Channel.GetMemoireList(mem);
         }
         
-        public System.Threading.Tasks.Task<bool> DeleteMemoireAsync(FrontMemoire3Tier.ServiceMemoire.Memoire memo) {
-            return base.Channel.DeleteMemoireAsync(memo);
+        public System.Threading.Tasks.Task<FrontMemoire3Tier.ServiceMemoire.Memoire[]> GetMemoireListAsync(FrontMemoire3Tier.ServiceMemoire.Memoire mem) {
+            return base.Channel.GetMemoireListAsync(mem);
         }
     }
 }

@@ -8,18 +8,11 @@
   <xs:element name="ArrayOfMemoire" nillable="true" type="tns:ArrayOfMemoire" />
   <xs:complexType name="Memoire">
     <xs:sequence>
-      <xs:element minOccurs="0" name="AnneeMemoire" type="xs:int" />
+      <xs:element minOccurs="0" name="AnneeMemoire" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DescriptionMemoire" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="IDMemoire" type="xs:int" />
+      <xs:element minOccurs="0" name="IdMemoire" type="xs:int" />
       <xs:element minOccurs="0" name="SujetMemoire" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Memoire" nillable="true" type="tns:Memoire" />
-  <xs:complexType name="MemoireModel">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="AnneeMemoire" type="xs:int" />
-      <xs:element minOccurs="0" name="SujetMemoire" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="MemoireModel" nillable="true" type="tns:MemoireModel" />
 </xs:schema>

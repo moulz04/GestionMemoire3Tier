@@ -1,4 +1,4 @@
-using MetierMemoire.Model;
+﻿using MetierMemoire.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,27 +19,23 @@ namespace MetierMemoire
 
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
-
-
         [OperationContract]
         List<Memoire> GetAllMemoire();
-
-
         [OperationContract]
         Memoire GetMemoire(int? id);
-
+        [OperationContract]
+        bool AddMemoire(Memoire mem);
 
         [OperationContract]
-        bool AddMemoire(Memoire memo);
+        bool UpdateMemoire(Memoire mem);
 
         [OperationContract]
-        List<Memoire> GetMemoireList(MemoireModel memo);
+        bool DeleteMemoire(int? id);
 
         [OperationContract]
-        bool EditMemoire(Memoire memo);
+        List<Memoire> GetMemoireList(Memoire mem);
 
-        [OperationContract]
-        bool DeleteMemoire(Memoire memo);
+        // TODO: ajoutez vos opérations de service ici
     }
 
 

@@ -9,117 +9,105 @@ namespace MetierMemoire.Service
 {
     public class MemoireService
     {
-        readonly BdMemoireContext db = new BdMemoireContext();
-
+        BdMemoireContext db = new BdMemoireContext();
         /// <summary>
-        /// Cette methode renvoie la liste de tous les memoires disponibles dans la base de données
+        /// renvoie la liste de tous les memoires
         /// </summary>
         /// <returns></returns>
-
         public List<Memoire> GetAllMemoire()
         {
             return db.Memoires.ToList();
         }
-
         /// <summary>
-        /// Renvoie le memoire correspondant à l'identifiant passé en paramètre
+        /// renvoie le memoire via son id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-
         public Memoire GetMemoire(int? id)
         {
+
             return db.Memoires.Find(id);
         }
-
-
         /// <summary>
-        /// Permet l'engeristrement d'un memoire dans la base de données
+        /// ajoute un memoire
         /// </summary>
-        /// <param name="memo"></param>
-        /// <returns></returns>
-
-        public bool AddMemoire(Memoire memo)
+        /// <param name="mem">Le memoire enregistrer</param>
+        public bool AddMemoire(Memoire mem)
         {
             try
             {
-                db.Memoires.Add(memo);
+                db.Memoires.Add(mem);
                 db.SaveChanges();
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-                throw new Exception("Erreur lors de l'ajout du mémoire : " + ex.Message);
-            }
-            return false;
-        }
-
-
-
-        /// <summary>
-        /// Permet de modifier un memoire dans la base de données
-        /// </summary>
-        /// <param name="memo"></param>
-        /// <returns></returns>
-        public bool EditMemoire(Memoire memo)
-        {
-            try
-            {
-                db.Entry(memo).State = EntityState.Modified;
-                db.SaveChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Erreur lors de la modification du mémoire : " + ex.Message);
-            }
-            return false;
-        }
-
-
-
-        /// <summary>
-        /// Permet de supprimer un memoire dans la base de données
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public bool DeleteMemoire(Memoire memo)
-        {
-            try
-            {
+                //todo: implementer le gestion des erreurs
                 
+            }
+            return false;
+
+        }
+        /// <summary>
+        /// Permet de modifier un memoire               
+        /// </summary>
+        public bool UpdateMemoire(Memoire mem)
+        {
+            try
+            {
+                db.Entry(mem).State = EntityState.Modified;
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception )
+            {
+            }
+            return false;
+        }
+        /// <summary>
+        ///permet de supprimer un memoire via son id
+        ///
+        public bool DeleteMemoire(int? id)
+        {
+            try
+            {
+                Memoire memoire = db.Memoires.Find(id);
+                if (memoire != null)
                 {
-                    db.Entry(memo).State = EntityState.Deleted;
+                    db.Memoires.Remove(memoire);
                     db.SaveChanges();
                     return true;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception("Erreur lors de la suppression du mémoire : " + ex.Message);
             }
-            return false;
+           return false;
         }
-
         /// <summary>
-        /// Permet la recherche des memoires dans la base de données en fonction du sujet et de l'année du memoire
+        /// permet de rechercher un memoire via son sujet, sa description ou son année
         /// </summary>
-        /// <param name="memo"></param>
+        /// <param name="mem"></param>
         /// <returns></returns>
-        public List<Memoire> GetMemoireList(MemoireModel memo)
+        public List<Memoire> GetMemoireList(Memoire mem)
         {
-            var liste = db.Memoires.ToList();
-
-            if(!string.IsNullOrEmpty(memo.SujetMemoire))
+            var query = db.Memoires.AsQueryable();
+            if (mem != null)
             {
-                liste = liste.Where(a => a.SujetMemoire.ToLower().Contains(memo.SujetMemoire.ToLower())).ToList();
+                if (!string.IsNullOrEmpty(mem.SujetMemoire))
+                {
+                    query = query.Where(m => m.SujetMemoire.Contains(mem.SujetMemoire));
+                }
+                if (!string.IsNullOrEmpty(mem.DescriptionMemoire))
+                {
+                    query = query.Where(m => m.DescriptionMemoire.Contains(mem.DescriptionMemoire));
+                }
+                if (mem.AnneeMemoire != 0)
+                {
+                    query = query.Where(m => m.AnneeMemoire == mem.AnneeMemoire);
+                }
             }
-            if (memo.AnneeMemoire!=null)
-            {
-                liste = liste.Where(a => a.AnneeMemoire==memo.AnneeMemoire).ToList();
-            }
-
-            return liste;
+            return query.ToList();
         }
 
     }
